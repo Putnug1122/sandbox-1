@@ -97,7 +97,7 @@
   <script>
     const API = `https://mybook-order.herokuapp.com/books`;
 
-    $("#form-tambah").submit(function (e) { 
+    $("#form-tambah").submit(function (e) {
       e.preventDefault();
       addBook()
     });
@@ -109,7 +109,7 @@
       }
       try {
         const request = await axios.post(API + "/type", data) //execute add progress
-        alert("sukses") //alert kalo dah sukses masukin datanya
+        alert("success")
         $("#exampleModal").modal("hide") //hide modalnya
         getListClass() // refresh data yang ada saat ini
       } catch (err) { //notify kalo ada error
@@ -140,7 +140,7 @@
     getListClass()
 
     const confirmDelete = async (BookId) => {
-      Swal({
+      Swal.fire({
         title: 'Are you sure?',
         text: 'Menghapus data kelas ',
         icon: 'warning',
@@ -155,7 +155,7 @@
 
     const deleteBook = async (BookId) => {
       try {
-        const requestDelete = await axios.delete(API +"/type"+ BookId)
+        const requestDelete = await axios.delete(API + "/type" + BookId)
         getListClass()
         Swal.fire(
           'Deleted!',
